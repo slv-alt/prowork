@@ -1,14 +1,14 @@
 stages:          # List of stages for jobs, and their order of execution
-  - build
+  - repo-clone
   - bootstrap
   - cluster-tune
 
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
+repo-clone-job:       # This job runs in the build stage, which runs first.
+  stage: repo-clone
   tags:
     - kuber
   script:
-    - echo "Compiling the code..."
+    - sudo git clone https://github.com/slv-alt/prowork.git
     - echo "Compile complete."
 
 bootstrap-job:
