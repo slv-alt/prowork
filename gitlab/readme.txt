@@ -15,6 +15,9 @@ apt install gitlab-runner
 # Настройка Gitlab
 Учетные данные для входа в веб-интерфейс Gitlab получаем в выводе после запуска скрипта:
 get_pasword.sh
-Меняем
+Меняем учетные данные на:
+root:Password1@
+Создаем проект "otus". В этом проекте создаем Pipeline:
+gitlab-ci.yml
 
-Далее регистрируем Runner для Pipeline в Gitlabe
+Далее регистрируем Runner для нашего Pipeline.
