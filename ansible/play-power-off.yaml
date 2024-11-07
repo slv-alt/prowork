@@ -1,0 +1,6 @@
+---
+- hosts: nodes
+  become: true
+  tasks:
+    - name: poweroff
+      ansible.builtin.shell: shutdown -h now

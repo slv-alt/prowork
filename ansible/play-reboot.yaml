@@ -1,0 +1,6 @@
+---
+- hosts: nodes
+  become: true
+  tasks:
+    - name: reboot
+      ansible.builtin.shell: shutdown -r now

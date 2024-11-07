@@ -1,0 +1,13 @@
+grafana:
+#  ingress:
+#    enabled: true
+  service:
+    type: LoadBalancer
+  additionalDataSources:
+    - name: Loki
+      editable: true
+      type: loki
+      url: http://loki-gateway.monitoring.svc.cluster.local:80
+
+alertmanager:
+  enabled: false

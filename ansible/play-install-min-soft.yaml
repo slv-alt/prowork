@@ -1,0 +1,6 @@
+---
+- hosts: nodes
+  become: true
+  tasks:
+    - name: install min soft
+      ansible.builtin.shell: apt-get -y install sudo mc man net-tools wget curl inetutils-telnet netcat-traditional nmap htop iotop

@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: butik
+  namespace: argo
+spec:
+  destination:
+    namespace: onlineboutique
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm-chart
+    repoURL: https://github.com/slv-alt/boutique.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+#    syncOptions:
+#    - CreateNamespace=true

@@ -1,0 +1,8 @@
+---
+- hosts: nodes
+  become: true
+  tasks:
+    - name: reboot
+      ansible.builtin.shell: |
+        systemctl stop apparmor
+        systemctl disable apparmor

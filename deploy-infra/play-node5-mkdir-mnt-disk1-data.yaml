@@ -1,0 +1,6 @@
+---
+- hosts: node5
+  become: true
+  tasks:
+    - name: reboot
+      ansible.builtin.shell: mkdir -p /mnt/disk1/data
