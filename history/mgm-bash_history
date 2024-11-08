@@ -1,0 +1,910 @@
+ip a
+nano /etc/network/interfaces
+/etc/init.d/networking restart
+nano /etc/network/interfaces
+/etc/init.d/networking restart
+ip a
+/etc/init.d/networking restart
+ip a
+ping mail.ru
+nano /etc/resolv.conf 
+apt-get install sudo mc
+mc
+sudo mc
+exit
+touch deb-tune.sh
+nano deb-tune.sh 
+cat sudoers 
+chmod +x deb-tune.sh 
+./deb-tune.sh 
+less sshd_config 
+less deb-tune.sh 
+systemctl restart ssh
+systemctl restart sshd
+systemctl status sshd
+systemctl status ssh
+chmod +x iptables.sh 
+shutdown -h now
+dmesg |grep eth
+shutdown -r now
+iptables -nvL
+apt install iptables
+iptables -nvL
+cd /etc/network
+./iptables.sh 
+shutdown -r now
+iptables -nvL
+mv iptables.sh iptables
+shutdown -r now
+shutdown -h now
+ssh-keygen -t rsa
+ssh-copy-id root@192.168.1.31
+ssh 192.168.1.31
+ping 192.168.1.31
+ssh 192.168.1.31
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+ssh 192.168.1.31
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+ssh 192.168.1.31
+apt install ansible
+ansible --version
+ansible-playbook -i inv.yaml add-etc-hosts.yaml 
+ssh 192.168.1.31
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+shutdown -h now
+ssh node1
+ssh node1.int
+ssh 192.168.1.31
+cat readme-ansible.txt 
+cp -Rp power_off.yaml reboot.yaml 
+ls
+ansible-playbook -i inv.yaml add-etc-hosts.yaml
+ssh 192.168.1.35
+cat 
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+apt-get update
+apt-get upgrade
+apt-get install git
+git clone https://github.com/kubernetes-sigs/kubespray.git
+ls
+uname -a
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35 )
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cd ..
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+apt-get install pip
+apt-get install pip3
+apt-get install pip
+apt-get install python3-pip
+pip3 install -r contrib/inventory_builder/requirements.txt
+pip3 install -r contrib/inventory_builder/requirements.txt --break-system-packages
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+history -a
+history
+cat readme-ansible.txt 
+ls
+ansible-playbook -i inv.yaml fwd_on.yaml
+ansible-playbook -i inv.yaml swapoff.yaml 
+ls
+ansible-playbook -i inv.yaml reboot.yaml 
+pwd
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible --version
+dpkg -l |grep software
+apt install software-properties-common
+apt-add-repository ppa:ansible/ansible
+apt update
+apt upgrade
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+git checkout tags/v2.19.0
+git checkout release-2.25
+cat readme-kubespay.txt 
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+git clone https://github.com/kubernetes-sigs/kubespray.git
+git checkout release-2.10
+git checkout release-2.10.0
+git checkout tags/v2.19.0
+cp -rfp inventory/sample inventory/mycluster
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible --version
+git checkout tags/v2.23.3
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cp -rfp inventory/sample inventory/mycluster
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+apt purge ansible
+pip install ansible
+pip install ansible --break-system-packages
+ansible --version
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+pip uninstall ansible
+pip uninstall ansible --break-system-packages
+pip install ansible==10.0.1 --break-system-packages
+ansible --version
+pip uninstall ansible==10.0.1 --break-system-packages
+ansible --version
+apt install ansible
+ansible --version
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+dpkg -l |grep ansible
+pip list
+apt purge ansible
+pip uninstall ansible-core --break-system-packages
+pip install ansible-core==2.17.4 --break-system-packages
+ansible --version
+pip install ansible --break-system-packages
+pip list
+pip uninstall ansible --break-system-packages
+pip install ansible-core==2.17.4 --break-system-packages
+pip uninstall ansible-core --break-system-packages
+pip install ansible-core==2.17.0 --break-system-packages
+pip uninstall ansible-core --break-system-packages
+pip uninstall ansible --break-system-packages
+pip install ansible-core==2.17.0 --break-system-packages
+pip list
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+apt-get install ansible
+ansible --version
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cat readme-kubespay.txt 
+cp -rfp inventory/sample inventory/mycluster
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+pip uninstall ansible-core --break-system-packages
+pip list
+pip install ansible-core==2.16.12 --break-system-packages
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+ansible-playbook -vvv -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+apt-get purge ansible
+ansible-playbook -vvv -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+ansible --version
+pip list
+pip install ansible --break-system-packages
+pip list
+pip install ansible-core==2.16.12 --break-system-packages
+pip list
+ansible-playbook -vvv -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml -b -v
+pip uninstall ansible-core --break-system-packages
+pip uninstall ansible --break-system-packages
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+pip3 install -r contrib/inventory_builder/requirements.txt --break-system-packages
+pip3 install -r requirements.txt --break-system-packages
+cat readme-kubespay.txt 
+cp -rfp inventory/sample inventory/mycluster
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+cat readme-ansible.txt 
+ansible-playbook -i inv.yaml reboot.yaml 
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+ansible-playbook -i inv.yaml reboot.yaml 
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inv.yaml power_off.yaml 
+shutdown -h now
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-power-off.yaml.yaml 
+ansible-playbook -i inventory.yaml play-power-off.yaml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-power-off.yaml
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+ssh 192.168.1.31
+ansible-playbook -i inventory.yaml play-power-off.yaml
+ping 192.168.1.21
+ping 192.168.1.31
+ping 192.168.1.32
+ssh-copy-id 192.168.1.31
+ssh-keygen
+ssh-copy-id 192.168.1.31
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.31"
+ssh-copy-id 192.168.1.31
+ssh 192.168.1.31
+ssh-copy-id 192.168.1.32
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.32"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.33"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.34"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.35"
+ssh-copy-id 192.168.1.32
+ssh 192.168.1.32
+ssh-copy-id 192.168.1.33
+ssh 192.168.1.33
+ssh-copy-id 192.168.1.34
+ssh 192.168.1.34
+ssh-copy-id 192.168.1.35
+ssh 192.168.1.35
+shutdown -r now
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+pip3 install -r contrib/inventory_builder/requirements.txt --break-system-packages
+pip3 install -r requirements.txt --break-system-packages
+cat readme-kubespay.txt 
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+pwd
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+pwd
+ls
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+less deb-tune.sh 
+echo "export EDITOR=/usr/bin/nano" >> /root/.bashrc
+exit
+less k8s-cluster.yml 
+virtsysrep
+virt-sysrep
+sysrep
+less readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+exit
+shutdown -h now
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root upgrade-cluster.yml 
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+cp -Rp hosts.yaml hosts.yaml.sv
+cp -rp inventory.ini inventory.ini.sv
+cat readme-kubespay.txt 
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cd ../..
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cd ../..
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+git status
+ls
+git add inventory
+git status
+cat readme-kubespay.txt 
+git clone https://github.com/slv-alt/kubespray.git
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
+cat readme-ansible.txt 
+ansible-playbook -i inventory.yaml play-reboot.yaml
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+shutdown -h now
+cat bootstrap.sh 
+git clone https://github.com/slv-alt/kubespray.git
+cd kubespray
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+chmod +x bootstrap.sh 
+./bootstrap.sh 
+git config --global user.email "slv-alt@mail.ru"
+git branch --all
+git add mycluster/
+git commit -m "change addons,k8s-cluster"
+git push origin master
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+./bootstrap.sh 
+printenv
+ls
+kubectl
+./kubectl
+./kubectl get nodes
+./kubectl.sh 
+./kubectl.sh get nodes
+./kubectl.sh top nodes
+kubectl get nodes
+./kubectl get nodes
+kubectl get nodes
+printenv
+kubectl get nodes
+cd /
+kubectl get nodes
+kubectl top nodes
+cat readme.txt 
+cat deploy-infra.sh 
+chmod +x tune.sh 
+./tune.sh 
+cat readme.txt 
+kubectl get node -o wide --show-labels
+kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+man mkdir
+cat deploy-infra.sh 
+ansible-playbook -i ../ansible/inventory.yaml play-node5-mkdir-mnt-disk1-data.yaml
+kubectl apply -f minio.yaml
+kubectl top nodes
+less readme.txt 
+cat deploy-infra.sh 
+helm list
+apt-get install helm
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+helm
+helm list
+cat deploy-infra.sh 
+helm repo add argo https://argoproj.github.io/argo-helm
+helm repo list
+helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
+helm uninstall argo-cd --namespace argo
+kubectl delete -f minio.yaml 
+kubectl top nodes
+helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
+helm uninstall argo-cd --namespace argo
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat bootstrap.sh 
+cd ~
+git clone https://github.com/slv-alt/kubespray.git
+cd kubespray
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cp -rfp inventory/sample inventory/mycluster
+cd kubespray
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+kubectl get node -o wide --show-labels
+cat tune.sh 
+cat readme.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat bootstrap.sh 
+cd ~
+git clone https://github.com/slv-alt/kubespray.git
+cd kubespray
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+ansible-playbook -i inventory.yaml play-power-off.yaml.yaml 
+ansible-playbook -i inventory.yaml play-power-off.yaml
+shutdown -h now
+kubectl get nodes
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl get nodes
+kubectl top nodes
+cat readme.txt 
+kubectl get node -o wide --show-labels
+kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+cat tune.sh 
+./tune.sh 
+kubectl top nodes
+kubectl apply -f minio.yaml 
+kubectl top nodes
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat readme-kubespay.txt 
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+cat readme-kubespay.txt 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl get nodes
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl get nodes
+kubectl top nodes
+helm
+kubectl top nodes
+./tune.sh 
+cat deploy-infra.sh 
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb
+kubectl apply -f minio.yaml 
+helm show values metallb/metallb >val-metall.txt
+helm uninstall metallb
+kubectl apply -f namespace.yaml 
+kubectl apply -f cm.yaml 
+kubectl apply -f metallb.yaml 
+kubectl delete -f metallb.yaml 
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml 
+kubectl delete -f metallb-pool.yaml 
+kubectl apply -f metallb-pool.yaml 
+kubectl get nodes
+kubectl delete -f metallb-pool.yaml 
+kubectl apply -f metallb-pool.yaml 
+kubectl delete -f metallb-pool.yaml 
+kubectl apply -f metallb-pool.yaml 
+kubectl delete -f metallb-pool.yaml 
+kubectl get nodes
+kubectl apply -f metallb-pool.yaml 
+kubectl delete -f metallb-pool.yaml 
+kubectl apply -f metallb-pool.yaml 
+kubectl get nodes
+kubectl delete -f metallb-pool.yaml 
+helm uninstall metallb --namespace metallb-system
+kubectl delete -f metallb.yaml 
+kubectl delete -f namespace.yaml 
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml 
+kubectl top nodes
+history
+kubectl top nodes
+history |grep git
+git add mycluster/
+git commit -m "change addons,k8s-cluster"
+git push origin master
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+cat bootstrap.sh 
+git clone https://github.com/slv-alt/kubespray.git
+git add mycluster/
+git commit -m "change confs"
+git push origin master
+git add mycluster/
+git commit -m "change confs krew"
+git push origin master
+./bootstrap.sh 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl top nodes
+./tune.sh 
+cat readme.txt 
+cat deploy-infra.sh 
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml
+kubectl apply -f minio.yaml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml 
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+ssh 192.168.1.33
+ssh-copy-id 192.168.1.33
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.34"
+ssh 192.168.1.34
+ssh-copy-id 192.168.1.34
+ssh 192.168.1.34
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl top nodes
+./tune.sh 
+cp -rp deploy-infra.sh readme.txt
+chmod +x deploy-infra.sh 
+./deploy-infra.sh 
+kubectl top nodes
+cat deploy-infra.sh 
+kubectl apply -f metallb-pool.yaml
+kubectl delete -f metallb-pool.yaml 
+helm uninstall metallb --namespace metallb-system
+cat deploy-infra.sh 
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+sleep 5
+kubectl apply -f metallb-pool.yaml
+kubectl top nodes
+helm uninstall metallb --namespace metallb-system
+kubectl delete -f metallb-pool.yaml 
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml
+kubectl delete -f metallb-pool.yaml 
+helm uninstall metallb --namespace metallb-system
+cat deploy-infra.sh 
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml -n metallb-system
+ubectl apply -f metallb-pool.yaml -n metallb-system
+kubectl apply -f metallb-pool.yaml -n metallb-system
+kubectl delete -f metallb-pool.yaml -n metallb-system
+helm uninstall metallb --namespace metallb-system
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml
+kubectl delete -f metallb-pool.yaml
+kubectl apply -f metallb-pool.yaml
+histo |grep helm
+history |grep helm
+helm show values metallb/metallb >val-metall.txt
+kubectl delete -f metallb-pool.yaml
+helm uninstall metallb --namespace metallb-system
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+kubectl apply -f metallb-pool.yaml
+helm list
+helm list -n metall-system
+helm list -n metallb-system
+kubectl delete -f metallb-pool.yaml
+helm uninstall metallb --namespace metallb-system
+ls
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace --values val-metall.yaml
+helm uninstall metallb --namespace metallb-system
+cat deploy-infra.sh 
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+sleep 60
+kubectl apply -f metallb-pool.yaml
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+shutdown -h now
+ssh-copy-id 192.168.1.100
+ssh 192.168.1.100
+less deploy-infra.sh 
+cat deploy-infra.sh 
+kubectl apply -f ns-monitoring.yaml
+helm repo add grafana https://grafana.github.io/helm-charts
+helm install loki grafana/loki --values val-loki.yaml -n monitoring
+cat deploy-infra.sh 
+helm install promtail grafana/promtail --values val-prom.yaml -n monitoring
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install kube-prom-stack prometheus-community/kube-prometheus-stack --values val-kub-prom-stack.yaml -n monitoring
+cat deploy-infra.sh 
+helm repo add argo https://argoproj.github.io/argo-helm
+helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
+helm uninstall argo-cd --namespace argo
+helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
+helm uninstall argo-cd --namespace argo
+helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
+helm uninstall kube-prom-stack -n monitoring
+helm install kube-prom-stack prometheus-community/kube-prometheus-stack --values val-kub-prom-stack.yaml -n monitoring
+helm uninstall kube-prom-stack -n monitoring
+cat deploy-infra.sh 
+helm uninstall promtail -n monitoring
+helm uninstall loki -n monitoring
+kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+krew
+kubens
+kubectl apply -f app-butik-argo.yaml 
+less app-butik-argo.yaml 
+kubectl apply -f ns-onlineboutique.yaml 
+kubectl delete -f app-butik-argo.yaml 
+kubectl apply -f app-butik-argo.yaml 
+kubectl delete -f app-butik-argo.yaml 
+kubectl apply -f app-butik-argo.yaml 
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+ssh 192.168.1.31
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.31"
+ssh 192.168.1.31
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.32"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.33"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.34"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "192.168.1.35"
+ssh 192.168.1.32
+ssh 192.168.1.33
+ssh 192.168.1.34
+ssh 192.168.1.35
+ansible-playbook -i inventory.yaml play-reboot.yaml 
+chmod +x bootstrap.sh 
+./bootstrap.sh 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl get nodes
+chmod +x tune.sh 
+./tune.sh 
+chmod +x deploy-infra.sh 
+./deploy-infra.sh 
+cat readme.txt 
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace metallb-system --create-namespace
+sleep 60
+kubectl apply -f metallb-pool.yaml
+kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+cd ../..
+less deploy-infra.sh 
+ls
+chmod +x deploy_soft.sh 
+./deploy_soft.sh 
+cat deploy-infra.sh 
+helm uninstall kube-prom-stack -n monitoring
+helm uninstall promtail -n monitoring
+helm uninstall loki -n monitoring
+kubectl delete -f minio.yaml
+cat deploy_soft.sh 
+helm uninstall argo-cd --namespace argo
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+shutdown -h now
+watch -n 1 kubectl top nodes
+chmod +x docker-install-debian.sh 
+./docker-install-debian.sh 
+cat docker-install-debian.sh 
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+docker run hello-world
+docker images
+chmod +x gitlab_docker_prepare.sh 
+ip a
+./gitlab_docker_prepare.sh 
+top
+shutdown -h now
+docker ps
+docker ps -a
+top
+docker ps -a
+docker compose down
+docker ps -a
+docker stop c9
+docker ps -a
+docker stop c93
+docker ps -a
+docker rm c93
+docker ps -a
+docker compose up -d
+docker ps -a
+docker compose down
+top
+top
+docker compose up 
+top
+docker compose up -d
+docker ps -a
+top
+netstat -na
+top
+vp -Rp gitlab_docker_prepare.sh get_pasword.sh 
+cp -Rp gitlab_docker_prepare.sh get_pasword.sh 
+./get_pasword.sh 
+docker compose down
+docker ps -a
+./gitlab_docker_prepare.sh 
+docker compose up -d
+top
+docker ps -a
+top
+./get_pasword.sh 
+docker compose down
+docker compose up -d
+top
+docker compose down
+./gitlab_docker_prepare.sh 
+docker compose up -d
+top
+docker ps -a
+top
+./get_pasword.sh 
+docker compose down
+docker compose up -d
+top
+docker compose down
+./gitlab_docker_prepare.sh 
+docker compose up -d
+top
+./get_pasword.sh 
+top
+docker compose down
+./gitlab_docker_prepare.sh 
+docker compose up -d
+./get_pasword.sh 
+top
+itlab-runner register
+gitlab-runner register
+docker ps
+docker exec -it gitlab-runner bash
+docker logs gitlab-runner
+docker exec -it gitlab-runner bash
+docker compose down
+cp -rp docker-compose.yml docker-compose.yml.sv
+docker images
+docker rmi gitlab/gitlab-ce
+docker rmi gitlab/gitlab-runner
+shutdown -r now
+docker compose up -d
+docker ps -a
+top
+./get_pasword.sh 
+top
+docker ps -a
+top
+docker exec -it gitlab-runner bash
+docker compose down
+shutdown -h now
+find / -name "mtrr"
+find / -not -path "/proc/*" -name "mtrr"
+find / -name "mtrr"
+find / -not -path "/proc/*" -name "mtrr"
+du
+du -h
+du / -h
+du --exlude /proc / -h
+du --exclude /proc / -h
+du -hs /* | sort -rh | head -10
+du --exclude /proc -hs /* | sort -rh | head -10
+docker ps -a
+docker compose up -d
+top
+./get_pasword.sh 
+docker compose down
+./gitlab_docker_prepare.sh 
+docker compose up -d
+top
+./get_pasword.sh 
+cat docker-compose.yml 
+docker compose up -d gitlab-runner
+docker ps -a
+docker exec -it gitlab-runner bash
+openssl s_client -connect 192.168.1.1:443
+docker ps -a
+docker exec -it gitlab bash
+docker compose down
+./gitlab_docker_prepare.sh 
+docker compose up -d
+top
+./get_pasword.sh 
+docker ps -a
+docker exec -it gitlab-runner
+docker exec -it gitlab-runner bash
+docker ps -a
+docker exec -it gitlab bash
+openssl req -new -newkey rsa:2048 -nodes -keyout STAR_gitlab_local.pem -subj /CN=*.gitlab.local -reqexts SAN -extensions SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:gitlab.local,DNS:*.gitlab.local")) -out STAR_gitlab_local.csr
+ls
+openssl req -in STAR_gitlab_local.csr -noout -text
+sudo openssl genrsa -des3 -out /etc/ssl/private/rootCA.key 2048
+openssl genrsa -des3 -out /etc/ssl/private/rootCA.key 2048
+openssl genrsa -des3 -out /etc/ssl/private/rootCA.key 1024
+docker compose down
+shutdown -h now
+ssh-keygen -t rsa -b 2048 -C "for gitlab"
+cat 
+openssl genrsa -out ca.key 2048
+openssl req -new -x509 -days 365 -key ca.key -subj "/C=CN/ST=GD/L=SZ/O=TEST/CN= TEST Root CA" -out ca.crt
+openssl req -newkey rsa:2048 -nodes -keyout gitlab.local.key -subj "/C=CN/ST=GD/L=SZ/O= TEST/CN=*.gitlab.local " -out gitlab.local.csr
+openssl x509 -req -extfile <(printf "subjectAltName=DNS: gitlab.local ,DNS: www.gitlab.local ") -days 365 -in gitlab.local.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out gitlab.local.crt
+docker ps -a
+docker compose up -d
+top
+docker ps -a
+docker exec -it gitlab-runner bash
+docker compose stop
+docker compose up -d
+history
+cat id_rsa.pub 
+top
+docker exec -it gitlab-runner bash
+docker compose down
+exit
+apt-get install curl ca-certificates apt-transport-https tzdata perl
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+apt-get update
+apt-get install gitlab-ce
+gitlab-ctl reconfigure
+gitlab-ctl reconfigureshutdown -h now
+shutdown -h now
+docker images
+docker rmi gitlab/gitlab-runner
+docker rmi 8ca378c5234a
+docker rmi 09d73cf2c20b
+docker ps -a
+chmod +x gitlab_docker_prepare.sh 
+./gitlab_docker_prepare.sh 
+docker compose up -d
+docker ps -a
+ip a
+chmod +x get_pasword.sh 
+./get_pasword.sh 
+docker exec -it gitlab-runner bash
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+apt install gitlab-runner
+gitlab-runner register  --url http://gitlab.local  --token glrt-Ztj4-aAsxZn4MrAvYJ7i
+ls -l
+systemctl list-units
+su gitlab-runner
+history |grep ansible
+ansible-playbook -i inventory.yaml play-reboot.yaml
+dockerstats
+dockerstat
+dockerstats
+docker stats
+sudo -l -U alt
+kubectl get nodes
+history
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl get nodes
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml && echo YES
+echo YES
+ansible-playbook -i inventory.yaml play-reboot.yaml
+./get_pasword.sh 
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+kubectl top nodes
+cp -rp config config.sv
+sed 's/127.0.0.1/192.168.1.31' config 
+sed 's/127.0.0.1/192.168.1.31/' config 
+sed 's/127.0.0.1/192.168.1.31/' config > config
+cp config.sv config 
+sed 's/127.0.0.1/192.168.1.31/w output' config
+sed 's/127.0.0.1/192.168.1.31/' config > outputfile
+sed -i 's/127.0.0.1/192.168.1.31/' config
+cp -rp config.sv config 
+sed -i 's/127.0.0.1/192.168.1.31/' config
+OB
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+scp 192.168.1.31:/root/.kube/config /root/.kube/
+ansible-playbook -i inventory.yaml play-reboot.yaml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-reboot.yaml
+git clone https://github.com/slv-alt/prowork.git
+history
+git add .
+git commit -m "add all dir and files into project"
+git push origin master
+git push origin main
+git  .
+git commit -m "add all dir and files into project"
+git push origin main
+git rm gitlab/gitlab-ci.yml.sv
+cp -Rp prowork prowork.copy
+git clone https://github.com/slv-alt/prowork.git
+history
+cp -rp docker-compose.yml docker-compose.yml.sv6
+ls
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-reboot.yaml
+./bootstrap.sh 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-reboot.yaml
+./bootstrap.sh 
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+ansible-playbook -i inventory.yaml play-reboot.yaml
+history |grep ssh
+ssh-copy-id 192.168.1.31
+ssh 192.168.1.31
+ssh 192.168.1.32
+ansible-playbook -i inventory.yaml play-reboot.yaml
+ansible-playbook -i inventory.yaml play-power-off.yaml 
+exit
+git add .
+git commit -m "add all dir and files into project"
+git push origin main
+git add .
+git commit -m "add gitlab-ci.yml"
+git push origin main
+cp -rp prowork prowork.sv2 
+git clone https://github.com/slv-alt/prowork.git
+shutdown -h now
