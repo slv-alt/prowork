@@ -1,25 +1,27 @@
 stages:
-#  - repo-clone
+  - repo-clone
   - bootstrap
 #  - cluster-tune
 
-#repo-clone-job:
-#  stage: repo-clone
-#  tags:
-#    - kuber
-#  script:
-#    - sudo cd /root
-#    - sudo git clone https://github.com/slv-alt/prowork.git
-#    - echo "Compile complete."
+repo-clone-job:
+  stage: repo-clone
+  tags:
+    - kuber
+  script:
+#    - sudo -s cd /home/123
+    - pwd
+    - git clone https://github.com/slv-alt/prowork.git
+    - echo "Clone complete."
+    - sudo cp -rp prowork /home/123/
 
 bootstrap-job:
   stage: bootstrap
   tags:
     - kuber
   script:
-    - sudo /home/gitlab-runner/cmd/bootstrap.sh
-    - echo "Cluster bootstrap complete."
-    
+    - git clone https://github.com/slv-alt/kubespray.git
+#    - echo "Cluster bootstrap complete."
+
 #cluster-tune-job:
 #  stage: cluster-tune
 #  tags:
