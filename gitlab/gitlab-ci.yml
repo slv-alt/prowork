@@ -1,32 +1,44 @@
 stages:
-  - repo-clone
-  - bootstrap
-#  - cluster-tune
+#  - repo-clone
+#  - bootstrap
+  - cluster-ctrl
+  - cluster-tune
 
-repo-clone-job:
-  stage: repo-clone
-  tags:
-    - kuber
-  script:
-#    - sudo -s cd /home/123
-    - pwd
-    - git clone https://github.com/slv-alt/prowork.git
-    - echo "Clone complete."
-    - sudo cp -rp prowork /home/123/
-
-bootstrap-job:
-  stage: bootstrap
-  tags:
-    - kuber
-  script:
-    - git clone https://github.com/slv-alt/kubespray.git
-#    - echo "Cluster bootstrap complete."
-
-#cluster-tune-job:
-#  stage: cluster-tune
+#repo-clone-job:
+#  stage: repo-clone
 #  tags:
 #    - kuber
 #  script:
-#    - sudo scp 192.168.1.31:/root/.kube/config /root/.kube/
-#    - sudo sed -i 's/127.0.0.1/192.168.1.31/' /root/.kube/config
-#    - echo "Tune cluster complete."
+#    - cd ~
+#    - rm -rf prowork
+#    - git clone https://github.com/slv-alt/prowork.git
+#    - echo "Clone Cfg project work directory complete."
+#    - rm -rf kubespray
+#    - git clone https://github.com/slv-alt/kubespray.git
+#    - echo "Clone kubespray complete."
+
+#bootstrap-job:
+#  stage: bootstrap
+#  tags:
+#    - kuber
+#  script:
+#    - cd ~/kubespray
+#    - sudo ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+#    - echo "Cluster bootstrap complete."
+
+cluster-ctrl-job:
+  stage: cluster-ctrl
+  tags:
+    - kuber
+  script:
+    - sudo scp 192.168.1.31:/root/.kube/config /root/.kube/
+    - sudo sed -i 's/127.0.0.1/192.168.1.31/' /root/.kube/config
+    - echo "Take cluster control complete."
+
+cluster-tune-job:
+  stage: cluster-tune
+  tags:
+    - kuber
+  script:
+    - sudo ~/prowork/cluster-tune/tune.sh
+    - echo "Tune cluster complete."
