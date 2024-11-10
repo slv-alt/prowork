@@ -48,4 +48,4 @@ helm repo add argo https://argoproj.github.io/argo-helm
 helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --create-namespace
 
 # Пароль для веб-интерфейса, пользователь admin
-kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+#kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d

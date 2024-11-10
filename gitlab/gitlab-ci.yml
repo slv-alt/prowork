@@ -1,30 +1,31 @@
 stages:
-#  - repo-clone
-#  - bootstrap
+  - repo-clone
+  - bootstrap
   - cluster-ctrl
   - cluster-tune
+  - deploy-infra
 
-#repo-clone-job:
-#  stage: repo-clone
-#  tags:
-#    - kuber
-#  script:
-#    - cd ~
-#    - rm -rf prowork
-#    - git clone https://github.com/slv-alt/prowork.git
-#    - echo "Clone Cfg project work directory complete."
-#    - rm -rf kubespray
-#    - git clone https://github.com/slv-alt/kubespray.git
-#    - echo "Clone kubespray complete."
+repo-clone-job:
+  stage: repo-clone
+  tags:
+    - kuber
+  script:
+    - cd ~
+    - sudo rm -rf prowork
+    - git clone https://github.com/slv-alt/prowork.git
+    - echo "Clone Cfg project work directory complete."
+    - sudo rm -rf kubespray
+    - git clone https://github.com/slv-alt/kubespray.git
+    - echo "Clone kubespray complete."
 
-#bootstrap-job:
-#  stage: bootstrap
-#  tags:
-#    - kuber
-#  script:
-#    - cd ~/kubespray
-#    - sudo ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
-#    - echo "Cluster bootstrap complete."
+bootstrap-job:
+  stage: bootstrap
+  tags:
+    - kuber
+  script:
+    - cd ~/kubespray
+    - sudo ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+    - echo "Cluster bootstrap complete."
 
 cluster-ctrl-job:
   stage: cluster-ctrl
@@ -41,4 +42,15 @@ cluster-tune-job:
     - kuber
   script:
     - sudo ~/prowork/cluster-tune/tune.sh
+    - cd ~/prowork/metallb
+    - sudo ~/prowork/metallb/metallb.sh
     - echo "Tune cluster complete."
+
+deploy-infra-job:
+  stage: deploy-infra
+  tags:
+    - kuber
+  script:
+    - cd ~/prowork/deploy-infra
+    - sudo ~/prowork/deploy-infra/deploy-infra.sh
+    - echo "Deploy infra complete."
