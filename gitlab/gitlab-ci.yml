@@ -4,6 +4,7 @@ stages:
   - cluster-ctrl
   - cluster-tune
   - deploy-infra
+  - deploy-soft
 
 repo-clone-job:
   stage: repo-clone
@@ -54,3 +55,12 @@ deploy-infra-job:
     - cd ~/prowork/deploy-infra
     - sudo ~/prowork/deploy-infra/deploy-infra.sh
     - echo "Deploy infra complete."
+
+deploy-soft-job:
+  stage: deploy-soft
+  tags:
+    - kuber
+  script:
+    - cd ~/prowork/deploy-soft
+    - sudo ~/prowork/deploy-soft/deploy-soft.sh
+    - echo "Deploy application Online Boutique complete."
