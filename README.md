@@ -67,3 +67,44 @@ cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
 ```
+Меняем настройки кластера
+  - inventory/mycluster/group_vars/k8s_cluster/addons.yaml
+     - Установка Helm: helm_enabled: false -> true
+     - Метрики: metrics_server_enabled: false -> true
+     - Провижининг LocalPath и LocalVolume:
+         - local_path_provisioner_enabled: false -> true
+         - local_volume_provisioner_enabled: false -> true
+     - Плагины: krew_enabled: false -> true
+  - inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+     - Сетевой плагин: kube_network_plugin: flannel
+     - Настройка, необходимая для работы MetalLB: kube_proxy_strict_arp: true
+  - inventory/mycluster/group_vars/k8s_cluster/k8s-net-flannel.yml
+      - flannel_interface_regexp: '192\\.168\\.1\\.\\d{1,3}'
+      - flannel_backend_type: "host-gw"
+
+Развернуть новый кластер
+```sh
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+```
+
+Обновить кластер, например если изменить устанавливаемые компоненты в inventory/mycluster/group_vars/k8s_cluster/addons.yml
+```sh
+inventory/mycluster/group_vars/k8s_cluster/addons.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root upgrade-cluster.yml
+```
+
+Сброс (удаление) кластера
+```sh
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root reset.yml
+```
+В процессе многочисленных развертываний кластера, с какого-то момента процесс установки кластера стал завершаться ошибкой
+на одной из нод Control Plane. Ошибка была вида:  
+The conditional check 'kubeadm_certificate_key is not defined' failed. The error was: An unhandled exception occurred while templating '{{ lookup('password', credentials_dir + '/kubeadm_certificate_key.creds length=64
+
+Ошибка имела не постоянный характер и могла появиться на одной из нод или сразу нескольких, какие либо изменения мне
+не помогали, пока не был найден патч:
+https://github.com/kubernetes-sigs/kubespray/pull/10523/files
+
+Данный патч применен в моем форке репозитория Kuberspray: https://github.com/slv-alt/kubespray/blob/master/roles/kubernetes/control-plane/tasks/kubeadm-setup.yml
+
+
