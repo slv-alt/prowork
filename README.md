@@ -107,4 +107,63 @@ https://github.com/kubernetes-sigs/kubespray/pull/10523/files
 
 Данный патч применен в моем форке репозитория Kuberspray: https://github.com/slv-alt/kubespray/blob/master/roles/kubernetes/control-plane/tasks/kubeadm-setup.yml
 
+Bootstrap кластера автоматизирован скриптом:  https://github.com/slv-alt/prowork/blob/main/bootstrap/bootstrap.sh  
+Аналогичние сценарий реализован в pipeline этапе bootstrap.  
+В этой же папке находятся конфигурационные файла kubespray, которые были изменены в данном проекте.
+
+Также для управления нодами предусмотрены несколько вспомогательных плейбуков в каталоге:  
+https://github.com/slv-alt/prowork/tree/main/ansible
+
+Например, перезагрузить все ноды:  
+```sh
+ansible-playbook -i inventory.yaml play-reboot.yaml
+```
+
+## Gitlab
+Каталог с конфигурациями и скриптами:  
+https://github.com/slv-alt/prowork/tree/main/gitlab
+
+### Gitlab-server
+Gitlab server будем устанавливать через Docker.
+
+### Установка Docker
+```sh
+apt-get update
+apt-get install ca-certificates curl gnupg
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update
+apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Был создан docker-compose.yml. Перед стартом запустить скрипт подготовки необходимых каталогов:
+gitlab_docker_prepare.sh  
+Запуск Gitlab:
+```sh
+docker compose up -d
+```
+
+### Gitlab-runner
+Gitlab-runner будем устанавливать напосредственно в ОС управляющей машины:
+```sh
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+apt install gitlab-runner
+```
+
+### Настройка Gitlab
+Учетные данные для входа в веб-интерфейс Gitlab получаем в выводе после запуска скрипта:
+```sh
+get_pasword.sh
+```
+Меняем учетные данные на:
+root:Password1@  
+Создаем проект "otus". В этом проекте создаем Pipeline:
+gitlab-ci.yml
+
+Далее регистрируем Runner для нашего Pipeline. Теперь можно приступать к созданию pipeline.
+
+
+
 
