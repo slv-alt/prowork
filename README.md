@@ -38,20 +38,32 @@ apt-get update
 apt-get install helm
 ```
 ### Kubespray и Ansible
-Для процедуры bootsrap кластера выбрано програмное обеспечение kubespray:
+Для процедуры bootstrap кластера выбрано программное обеспечение kubespray:
 https://github.com/kubernetes-sigs/kubespray
 
-Для обеспечения стабильности и хранения настроек разврачиваемого кластера был сделан форк:
+Для обеспечения стабильности и хранения настроек нашего кластера был сделан форк:
 https://github.com/slv-alt/kubespray.git
 
-Подготовка к настройкам kubespray, установка ansible
-Установка pip
+Настройка kubespray, установка ansible  
+Установка pip:
 ```sh
-apt-get install pip
+apt-get install pip  
+```
+Клонируем форк:
+```sh
 git clone https://github.com/slv-alt/kubespray.git
+```
+Устанавливаем зависимости, ansible
+```sh
 cd kubespray
 pip3 install -r requirements.txt --break-system-packages
+```
+Делаем копию конфигурационного каталога
+```sh
 cp -rfp inventory/sample inventory/mycluster
+```
+Объявляем список IP-адресов наших нод, формируем файл hosts.yaml
+```sh
 declare -a IPS=(192.168.1.31 192.168.1.32 192.168.1.33 192.168.1.34 192.168.1.35)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
 ```

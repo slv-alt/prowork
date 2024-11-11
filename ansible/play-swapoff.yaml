@@ -1,8 +1,0 @@
----
-- hosts: nodes
-  become: true
-  tasks:
-    - name: swap file off
-      ansible.builtin.shell: |
-        swapoff -a
-        sed -i '/ swap / s/^/#/' /etc/fstab
