@@ -10,7 +10,7 @@
 1. Одна управляющая машина (mgm). Данная машина предоставляет:
   - консоль управления кластером с установленными kubectl, k9s, helm, ansible, kubespray
   - сервер Gitlab и gitlab-runner для реализации pipeline развертывания платформы, средствами ansible и скриптами bash
-2. Пять нод (node1-5):
+2. Пять нод кластера kubernetes (node1-5):
   - node1-3 - Control Plane Nodes, управляющие/инфраструктурные ноды с сервисами мониторинга, логирования (Promtail-Loki-Grafana) и доставки приложения (Argo-CD)
   - node4-5 - Worker Nodes, рабочие ноды для функционирования приложения (Online Boutique by Google) и хранилища S3 (Minio)
 
@@ -170,13 +170,15 @@ gitlab-ci.yml
 ssh-copy-id root@192.168.1.31
 ```
 
-# Этапы развертывания (стадии) - Pipeline
+# Этапы автоматического развертывания (стадии) - Pipeline
 Стадии описаны в файле: https://github.com/slv-alt/prowork/blob/main/gitlab/gitlab-ci.yml и практически повторяют структуру каталогов репозитория проектной работы.
 
 ### Клонирование репозиториев - repo-clone
 На данной стадии клонируются 2 репозитория:
   - https://github.com/slv-alt/prowork.git - проектная работа с конфигурационными файлами, bash-скриптами и манифестами
   - https://github.com/slv-alt/kubespray.git - форк kubespray с пред настроенными параметрами bootstrap кластера
+
+![Скиншот лога pipeline repo-clone](screenshots/gitlab-repo-clone.JPG)
 
 ### Кластер bootstrap - bootstrap
 На данной стадии с помощью ansible и конфигурации kubespray запускается bootstrap кластера
@@ -186,8 +188,8 @@ ssh-copy-id root@192.168.1.31
 
 ### Настройка кластера после установки - cluster-tune
 На данной стадии выполняются 2 действия:
-  - запускается скрипт prowork/cluster-tune/tune.sh, который проставляет метки (labels) и таинты (taints) для правильного распределения инфраструктурной и рабочей нагрузки
-  - разворачивается MetalLB, который нам обеспечит сетевой доступ к ресурсам - веб-страницам приложений: Minio, Grafana, Argo-CD, Boutique. Установка MetalLB выполняется скриптом metallb.sh, который добавляет репозиторий metallb, устанавливает metallb чарт и применяет сетевые настройки с помощью манифеста metallb-pool.yaml:
+  - запускается скрипт ~/prowork/cluster-tune/tune.sh, который проставляет метки (labels) и таинты (taints) для правильного распределения инфраструктурной и рабочей нагрузки
+  - разворачивается MetalLB, который нам обеспечит сетевой доступ к ресурсам - веб-страницам приложений: Minio, Grafana, Argo-CD, Boutique. Установка MetalLB выполняется скриптом ~/prowork/metallb/metallb.sh, который добавляет репозиторий metallb, устанавливает metallb чарт и применяет сетевые настройки с помощью манифеста metallb-pool.yaml:
     ```sh
     helm repo add metallb https://metallb.github.io/metallb
     helm install metallb metallb/metallb --namespace metallb-system --create-namespace
@@ -200,7 +202,7 @@ ssh-copy-id root@192.168.1.31
   - Мониторинг и логирование- стек из Promtail/Prometheus, Loki, Grafana
   - GitOps инструмент для непрерывной доставки ПО - Argo-CD
   
-Развертывание происходит исполнением скрипта deploy-infra.sh с применением манифестов и конфигурационных файлов "values" из каталога https://github.com/slv-alt/prowork/tree/main/deploy-infra  
+Развертывание происходит исполнением скрипта ~/prowork/deploy-infra/deploy-infra.sh с применением манифестов и конфигурационных файлов "values" из каталога https://github.com/slv-alt/prowork/tree/main/deploy-infra  
 Скрипт deploy-infra.sh:
 ```sh
 #!/bin/bash
@@ -258,7 +260,7 @@ helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --c
 
 ### Развертывание приложения - deploy-soft
 На данной стадии развертывается приложение Online Boutique.  
-Развертывание происходит исполнением скрипта deploy-soft.sh:
+Развертывание происходит исполнением скрипта ~/prowork/deploy-soft/deploy-soft.sh:
 ```sh
 #!/bin/bash
 
