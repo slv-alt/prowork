@@ -32,7 +32,7 @@ helm install promtail grafana/promtail --values val-prom.yaml -n monitoring
 
 sleep 60
 
-# Устанавлимаем стек мониторинга
+# Устанавливаем стек мониторинга
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm install kube-prom-stack prometheus-community/kube-prometheus-stack --values val-kub-prom-stack.yaml -n monitoring
 
