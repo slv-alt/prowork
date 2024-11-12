@@ -178,13 +178,15 @@ ssh-copy-id root@192.168.1.31
   - https://github.com/slv-alt/prowork.git - проектная работа с конфигурационными файлами, bash-скриптами и манифестами
   - https://github.com/slv-alt/kubespray.git - форк kubespray с пред настроенными параметрами bootstrap кластера
 
-![Скиншот лога pipeline repo-clone](screenshots/gitlab-repo-clone.JPG)
+![Скиншот лога pipeline](screenshots/gitlab-repo-clone.JPG)
 
 ### Кластер bootstrap - bootstrap
 На данной стадии с помощью ansible и конфигурации kubespray запускается bootstrap кластера
+![Скиншот лога pipeline](screenshots/gitlab-bootstrap.JPG)
 
 ### Установка контроля над кластером - cluster-ctrl
 На данной стадии на управляющую машину копируется конфиг kubernetes для управления кластером
+![Скиншот лога pipeline](screenshots/gitlab-cluster-ctrl.JPG)
 
 ### Настройка кластера после установки - cluster-tune
 На данной стадии выполняются 2 действия:
@@ -196,6 +198,8 @@ ssh-copy-id root@192.168.1.31
     sleep 60
     kubectl apply -f metallb-pool.yaml
     ```
+![Скиншот лога pipeline](screenshots/gitlab-cluster-tune).JPG)
+
 ### Развертывание инфраструктурного ПО - deploy-infra
 На данной стадии развертывается инфраструктурное ПО:
   - Храннилище S3 - Minio
