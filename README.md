@@ -198,7 +198,7 @@ ssh-copy-id root@192.168.1.31
     sleep 60
     kubectl apply -f metallb-pool.yaml
     ```
-![Скиншот лога pipeline](screenshots/gitlab-cluster-tune).JPG)
+![Скиншот лога pipeline](screenshots/gitlab-cluster-tune.JPG)
 
 ### Развертывание инфраструктурного ПО - deploy-infra
 На данной стадии развертывается инфраструктурное ПО:
@@ -261,6 +261,7 @@ helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --c
 # Пароль для веб-интерфейса, пользователь admin
 #kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
+![Скиншот лога pipeline](screenshots/gitlab-deploy-infra.JPG)
 
 ### Развертывание приложения - deploy-soft
 На данной стадии развертывается приложение Online Boutique.  
@@ -277,7 +278,62 @@ kubectl apply -f app-butik-argo.yaml
 Адрес форка: https://github.com/slv-alt/boutique.git
 Настройки приложения заданы в https://github.com/slv-alt/boutique/blob/main/helm-chart/values.yaml.
 Приложение будет автоматически переконфигурироваться при изменении значений в этом файле.
+![Скиншот лога pipeline](screenshots/gitlab-deploy-app.JPG)
 
+### Окончание этапов автоматичекого развертывания
+![Скиншот лога pipeline](screenshots/gitlab-deploy-app.JPG)
 
+### Приложение в Argo-CD
+![Скиншот](screenshots/argo-app.JPG)
 
+### Приложение в Argo-CD
+![Скиншот](screenshots/argo-app-in.JPG)
+
+## Мониторинг, централизованное логирование и хранение
+Компоненты, отвечающие за мониторинг, логирование и хранение работают на связке:
+Promtail-Loki-Grafana-Prometheus-Minio
+
+### Хранилище S3 - Minio
+Объектное хранилище необходимо для централизованного хранения логов. Клиентом этого хранилища будет Loki. Развертывание Minio осуществилось в процессе работы gitlab pipeline, применением манифеста deploy-infra/minio.yaml. Ранее, в процессе подготовки кластера, нода node5 была помечена меткой storage=true, также был сделан каталог для хранилища. В коплексе этих настроек данное приложение было запущено именно на node5.  
+### Веб-интерфейс Minio
+![Скиншот](screenshots/minio.JPG)
+
+### Loki - система агрегации журналов
+Хранит данные в объектном хранилище S3 - Minio. Является источником данных для Grafana. Рзвертывание Loki осуществилось в процессе работы gitlab pipeline, установкой чарта https://grafana.github.io/helm-charts - grafana/loki, с применением конфигурационного файла deploy-infra/val-loki.yaml
+
+### Promtail
+Promtail агент, работающий с Loki. Он отвечает за сбор журналов из различных источников, таких как файлы журналов или журнал systemd, и отправку их в Loki для хранения и индексации. запускается на всех нодах, через установку helm-чарта grafana/promtail с применением конфигурационного файла deploy-infra/val-prom.yaml
+
+### Стек мониторинга кластера и приложения
+В данном стеке будут установлены дополнительно Grafana и Prometheus. Стек разворачивается через установку helm-чарта https://prometheus-community.github.io/helm-charts - prometheus-community/kube-prometheus-stack с применением конфигурационного файла deploy-infra/val-kub-prom-stack.yaml
+
+### Веб-интерфейс Grafana
+![Скиншот](screenshots/grafana-home.JPG)
+
+### Grafana - мониторинг кластера
+![Скиншот](screenshots/grafana-kublet.JPG)
+
+### Grafana - мониторинг кластера
+![Скиншот](screenshots/grafana-kublet2.JPG)
+
+### Grafana - мониторинг кластера -node1
+![Скиншот](screenshots/grafana-node1.JPG)
+
+### Grafana - мониторинг кластера - node1
+![Скиншот](screenshots/grafana-node1.JPG)
+
+### Grafana - просмотр логов - node5
+![Скиншот](screenshots/grafana-logs-node5.JPG)
+
+### Grafana - просмотр логов приложения Online Boutique, сервиса frontend
+![Скиншот](screenshots/grafana-logs-app-frontend.JPG)
+
+### Grafana - просмотр логов приложения Online Boutique, сервиса loadgenerator
+![Скиншот](screenshots/grafana-logs-app-loadgenerator.JPG)
+
+### Grafana - мониторинг приложения Online Boutique
+![Скиншот](screenshots/grafana-pods-onlineboutique.JPG)
+
+### Grafana - мониторинг приложения Online Boutique
+![Скиншот](screenshots/grafana-workload-onlineboutique.JPG)
 
