@@ -1,9 +1,22 @@
+ssh управл€ющей машины
+ip_addr.nip.io:3622
+
+gitlab
+root:Password1@
+ip_addr.nip.io:8036
+
 Minio
 minioadmin:minioadmin
+ip_addr.nip.io:9041
 
 Grafana
-admin:promoperator
+admin:prom-operator
+ip_addr.nip.io:9042
 
 Argo-cd
 kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 admin:Password1@
+ip_addr.nip.io:9043
+
+Online Boutique
+ip_addr.nip.io:9044
