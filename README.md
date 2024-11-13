@@ -289,6 +289,9 @@ kubectl apply -f app-butik-argo.yaml
 ### Приложение в Argo-CD
 ![Скриншот](screenshots/argo-app-in.JPG)
 
+### Веб интерфейс приложения
+![Скриншот](screenshots/app.JPG)
+
 ## Мониторинг, централизованное логирование и хранение
 Компоненты, отвечающие за мониторинг, логирование и хранение работают на связке:
 Promtail-Loki-Grafana-Prometheus-Minio
@@ -306,9 +309,6 @@ Promtail агент, работающий с Loki. Он отвечает за с
 
 ### Стек мониторинга кластера и приложения
 В данном стеке будут установлены дополнительно Grafana и Prometheus. Стек разворачивается через установку helm-чарта https://prometheus-community.github.io/helm-charts - prometheus-community/kube-prometheus-stack с применением конфигурационного файла deploy-infra/val-kub-prom-stack.yaml
-
-### Веб-интерфейс Grafana
-![Скриншот](screenshots/grafana-home.JPG)
 
 ### Grafana - мониторинг кластера
 ![Скриншот](screenshots/grafana-kublet.JPG)
