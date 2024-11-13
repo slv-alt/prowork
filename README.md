@@ -107,7 +107,7 @@ https://github.com/kubernetes-sigs/kubespray/pull/10523/files
 Данный патч применен в моем форке репозитория Kuberspray: https://github.com/slv-alt/kubespray/blob/master/roles/kubernetes/control-plane/tasks/kubeadm-setup.yml
 
 Bootstrap кластера автоматизирован скриптом:  https://github.com/slv-alt/prowork/blob/main/bootstrap/bootstrap.sh  
-Аналогичние сценарий реализован в pipeline этапе bootstrap.  
+Аналогичный сценарий реализован в pipeline этапе bootstrap.  
 В этой же папке находятся конфигурационные файла kubespray, которые были изменены в данном проекте.
 
 Также для управления нодами предусмотрены несколько вспомогательных плейбуков в каталоге:  
@@ -273,7 +273,7 @@ kubectl apply -f ns-onlineboutique.yaml
 kubectl apply -f app-butik-argo.yaml
 ```
 Первая строка применяет манифест создания namespace для приложения. Вторая строка применяет манифест создания развертывания приложения в Argo-CD.
-Основные настройки этого манифеста заключаются в том что указывается репозиторий, содержащий приложение, а также настройки автоматической непрерывной доставки.
+Основные настройки этого манифеста заключаются в том, что указывается репозиторий, содержащий приложение, а также настройки автоматической непрерывной доставки.
 Репозиторий приложения - это форк оригинального Online Boutique by Google с необходимыми нам настройками.
 Адрес форка: https://github.com/slv-alt/boutique.git
 Настройки приложения заданы в https://github.com/slv-alt/boutique/blob/main/helm-chart/values.yaml.
