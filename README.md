@@ -104,7 +104,7 @@ The conditional check 'kubeadm_certificate_key is not defined' failed. The error
 Ошибка имела не постоянный характер и могла появиться на одной из нод или сразу нескольких. Какие-либо изменения не помогали, пока не был найден патч:
 https://github.com/kubernetes-sigs/kubespray/pull/10523/files
 
-Данный патч применен в моем форке репозитория Kuberspray: https://github.com/slv-alt/kubespray/blob/master/roles/kubernetes/control-plane/tasks/kubeadm-setup.yml
+Данный патч применен в моем форке репозитория Kubespray: https://github.com/slv-alt/kubespray/blob/master/roles/kubernetes/control-plane/tasks/kubeadm-setup.yml
 
 Bootstrap кластера автоматизирован скриптом:  https://github.com/slv-alt/prowork/blob/main/bootstrap/bootstrap.sh  
 Аналогичный сценарий реализован в pipeline этапе bootstrap.  
@@ -165,7 +165,7 @@ gitlab-ci.yml
 
 # Виртуальные машины для нод
 
-Установка виртуальных машин производилась вручную без автоматизации. Для нод была выполнена установка ОС Debain/Ubuntu с минимальными настройками - настроена сеть, хост и возможность удаленного подключения от пользователя root для работы ansible. Данная машина была склонирована на 5 машин node1-5, с IP-адресами 192.168.1.31-35. С управляющей машины были скопированы ключи для беспарольного доступа:
+Установка виртуальных машин производилась вручную без автоматизации. Для нод была выполнена установка ОС Debain/Ubuntu с минимальными настройками - настроена сеть, хост и возможность удаленного подключения от пользователя root для работы ansible. Данная машина была клонирована на 5 машин node1-5, с IP-адресами 192.168.1.31-35. С управляющей машины были скопированы ключи для беспарольного доступа:
 ```sh
 ssh-copy-id root@192.168.1.31
 ```
@@ -178,15 +178,15 @@ ssh-copy-id root@192.168.1.31
   - https://github.com/slv-alt/prowork.git - проектная работа с конфигурационными файлами, bash-скриптами и манифестами
   - https://github.com/slv-alt/kubespray.git - форк kubespray с пред настроенными параметрами bootstrap кластера
 
-![Скиншот лога pipeline](screenshots/gitlab-repo-clone.JPG)
+![Скриншот лога pipeline](screenshots/gitlab-repo-clone.JPG)
 
 ### Кластер bootstrap - bootstrap
 На данной стадии с помощью ansible и конфигурации kubespray запускается bootstrap кластера
-![Скиншот лога pipeline](screenshots/gitlab-bootstrap.JPG)
+![Скриншот лога pipeline](screenshots/gitlab-bootstrap.JPG)
 
 ### Установка контроля над кластером - cluster-ctrl
 На данной стадии на управляющую машину копируется конфиг kubernetes для управления кластером
-![Скиншот лога pipeline](screenshots/gitlab-cluster-ctrl.JPG)
+![Скриншот лога pipeline](screenshots/gitlab-cluster-ctrl.JPG)
 
 ### Настройка кластера после установки - cluster-tune
 На данной стадии выполняются 2 действия:
@@ -198,7 +198,7 @@ ssh-copy-id root@192.168.1.31
     sleep 60
     kubectl apply -f metallb-pool.yaml
     ```
-![Скиншот лога pipeline](screenshots/gitlab-cluster-tune.JPG)
+![Скриншот лога pipeline](screenshots/gitlab-cluster-tune.JPG)
 
 ### Развертывание инфраструктурного ПО - deploy-infra
 На данной стадии развертывается инфраструктурное ПО:
@@ -261,7 +261,7 @@ helm install argo-cd argo/argo-cd --values val-argo-cd.yaml --namespace argo --c
 # Пароль для веб-интерфейса, пользователь admin
 #kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
-![Скиншот лога pipeline](screenshots/gitlab-deploy-infra.JPG)
+![Скриншот лога pipeline](screenshots/gitlab-deploy-infra.JPG)
 
 ### Развертывание приложения - deploy-soft
 На данной стадии развертывается приложение Online Boutique.  
@@ -372,7 +372,7 @@ helm upgrade onlineboutique oci://us-docker.pkg.dev/online-boutique-ci/charts/on
 ```sh
 https://github.com/slv-alt/boutique.git
 ```
-В вебинтерфйсе Argo создаем приложение - butik  
+В веб интерфейсе Argo создаем приложение - butik  
 Получаем данные для манифеста приложения butik для Argo
 ```sh
 kubectl get Application butik -o yaml > app-butik-argo-getApp.yaml
