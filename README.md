@@ -329,6 +329,9 @@ Promtail агент, работающий с Loki. Он отвечает за с
 ![Скриншот](screenshots/grafana-logs-app-loadgenerator.JPG)
 
 ### Grafana - мониторинг приложения Online Boutique
+![Скриншот](screenshots/grafana-compute-onlineboutique.JPG)
+
+### Grafana - мониторинг приложения Online Boutique
 ![Скриншот](screenshots/grafana-pods-onlineboutique.JPG)
 
 ### Grafana - мониторинг приложения Online Boutique
@@ -458,11 +461,3 @@ helm search repo prometheus-community
 kubectl create namespace monitoring
 helm install kube-prom-stack prometheus-community/kube-prometheus-stack --values val-kub-prom-stack.yaml -n monitoring
 ```
-
-Настройка просмотра логов в графане  
-Connections-Data sources-Add data source-Loki  
-  URL: (http://loki-gateway:80)  
-        http://loki-gateway.default.svc.cluster.local:80  
-       (http://NameService.NameSpace.svc.cluster.local:80)  
-  Save&test  
-Explore-Loki-Code-Label browser
