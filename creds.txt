@@ -7,16 +7,16 @@ ip_addr.nip.io:8036
 
 Minio
 minioadmin:minioadmin
-ip_addr.nip.io:9041
+ip_addr.nip.io:8041
 
 Grafana
 admin:prom-operator
-ip_addr.nip.io:9042
+ip_addr.nip.io:8042
 
 Argo-cd
 kubectl -n argo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 admin:Password1@
-ip_addr.nip.io:9043
+ip_addr.nip.io:8043
 
 Online Boutique
-ip_addr.nip.io:9044
+ip_addr.nip.io:8044
