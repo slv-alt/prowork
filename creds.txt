@@ -1,7 +1,7 @@
 ssh Управляющей машины
 ip_addr.nip.io:3622
 
-gitlab
+Gitlab
 root:Password1@
 ip_addr.nip.io:8036
 
